@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 flask==3.0.0
 opencv-python-headless==4.8.1.78
 numpy==1.26.4
@@ -8,3 +9,14 @@ seaborn==0.13.0
 matplotlib==3.8.2
 plotly==5.18.0
 gunicorn==21.2.0 
+=======
+flask
+opencv-python
+numpy
+scikit-learn
+joblib
+werkzeug
+seaborn
+matplotlib
+plotly
+>>>>>>> 7d11168ddc52d9356ce5af2d54c0bd01fddb441d
