@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Model - Klasifikasi Sampah</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .analysis-card {
+            margin-bottom: 2rem;
+        }
+        .analysis-iframe {
+            width: 100%;
+            height: 500px; /* Sesuaikan tinggi sesuai kebutuhan */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="back-button">
+            <a href="/" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left"></i> Kembali ke Halaman Utama
+            </a>
+        </div>
+        
+        <h1 class="text-center mb-5">Analisis Model Klasifikasi Sampah</h1>
+        
+        <div class="row">
+            <!-- Confusion Matrix -->
+            <div class="col-md-6">
+                <div class="card analysis-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Confusion Matrix</h5>
+                        <p class="card-text text-muted">
+                            Confusion Matrix menunjukkan performa model dalam mengklasifikasikan setiap kelas sampah.
+                            Semakin gelap warnanya, semakin tinggi nilai prediksinya.
+                        </p>
+                        <iframe src="{{ url_for('static', filename='plots/confusion_matrix.html') }}" 
+                                class="analysis-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Importance -->
+            <div class="col-md-6">
+                <div class="card analysis-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Fitur Terpenting</h5>
+                        <p class="card-text text-muted">
+                            Grafik ini menunjukkan 20 fitur histogram yang paling berpengaruh dalam pengambilan keputusan model.
+                            Semakin panjang bar, semakin penting fitur tersebut.
+                        </p>
+                        <iframe src="{{ url_for('static', filename='plots/feature_importance.html') }}" 
+                                class="analysis-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
